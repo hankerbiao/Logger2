@@ -17,7 +17,7 @@
 3. 使用Logger实例的infoLog、debugLog、warningLog、errorLog和criticalLog方法记录相应级别的日志
 
 ```python
-from logger import Logger
+from Logger2 import Logger
 
 # 创建Logger实例,日志路径为./logs,日志级别为DEBUG
 log = Logger(log_path='./logs', log_level='DEBUG')
