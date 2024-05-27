@@ -11,11 +11,11 @@ LOG_FORMAT = (
     "<yellow>{file.path}:{line}</yellow> | "
     "{message}"
 )
-today = time.strftime("%Y%m%d")
-compression = "zip"
-encoding = "utf8"
-rotation = "50MB"
-
+today = time.strftime("%Y%m%d")  # 日志保存日期格式
+compression = "zip"  # 压缩格式
+encoding = "utf8"  # 日志格式
+rotation = "50MB"  # 50MB后自动压缩 
+retention = "1 day"  # 日志保存天数
 
 class Logger():
     __instance = None
@@ -42,7 +42,8 @@ class Logger():
                 enqueue=True,
                 format=LOG_FORMAT,
                 rotation=rotation,
-                encoding=encoding
+                encoding=encoding,
+                retention=retention  # 日志保存天数
             )
 
             setattr(self, level, logger.bind(name=level))
